@@ -1,3 +1,7 @@
+// devsnest lecs.
+// revised 1, 
+// array and object destructuring.
+
 // object destructuring.
 let anotherPerson = {
   first: "foo",
@@ -11,16 +15,18 @@ let anotherPerson = {
 console.log(anotherPerson.last); // before destructuring approach.
 
 // using destructuring approach.
-let {first, last, address:{state}}=anotherPerson;
-console.log(state);
+// let {first, last, address:{state}}=anotherPerson;
+// console.log(state);
 
 // we can destructure nested objects also, in addition to normal objects.
-// let {
-//   first,
-//   last,
-//   address: { city },
-// } = anotherPerson; // here, we are extracting "first" and "last" and "city"  from the above object.
-// console.log(first, city, last);
+let {
+  first,
+  last,
+  address: { city },
+} = anotherPerson; // here, we are extracting "first" and "last" and "city"  from the above object.
+
+// in object destructuring, order does not matter, but in array destructuring, order does matter.
+console.log(first, city, last);
 
 // array destructuring.
 const fruits = ["apple", "banana", "kiwi"];
@@ -30,8 +36,8 @@ const fruits = ["apple", "banana", "kiwi"];
 // let fr2 = fruits[1];
 // let fr3 = fruits[2];
 
-// const [, , kiwi] = fruits;
-// console.log(`coming from destructured array! ${kiwi}`);
+const [, , kiwi] = fruits;
+console.log(`coming from destructured array! ${kiwi}`);
 
 // take care of positioning.
 // let [fr1, fr2, fr3] = fruits;
@@ -42,5 +48,5 @@ let [fr1, fr2, fr3, fr4 = "coconut"] = fruits;
 console.log(fr1, fr2, fr3, fr4);
 
 // alias in destructuring.
-let { first: names } = anotherPerson;
-console.log("aliased as name", names);
+let { first: name } = anotherPerson;
+console.log("first is aliased as name", name);
